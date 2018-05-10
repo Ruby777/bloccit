@@ -27,18 +27,23 @@
   
 # config/database.yml 
 default: &default 
-adapter: postgresql 
-pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %> 
-timeout: 5000 
+  adapter: postgresql 
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %> 
+  timeout: 5000 
 
 development: 
-<<: *default 
-database: your_project_name_dev 
+  <<: *default
+  database: your_project_name_dev 
+
+#adapter: postgresql
+#  database: db/development.postgresql
+#pool: 5
+#timeout: 5000
 
 test: 
-<<: *default 
-database: your_project_name_test 
+  <<: *default 
+  database: your_project_name_test 
 
 production: 
-<<: *default 
-database: your_project_name_prod
+  <<: *default 
+  database: your_project_name_prod
